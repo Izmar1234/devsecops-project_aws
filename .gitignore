@@ -23,7 +23,7 @@ override.tf.json
 terraform.rc
 
 # Lock file (optional: keep or ignore depending on team)
- .terraform.lock.hcl
+.terraform.lock.hcl
 
 # Private keys (you have one!)
 *.pem
