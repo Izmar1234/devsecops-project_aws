@@ -7,7 +7,7 @@ resources:
 
 helmCharts:
   - name: boutique-app
-    repo: oci://ghcr.io/izmar1234/onlineboutique
+    repo: oci://ghcr.io/izmar1234
     version: 0.10.4
     releaseName: boutique-app
     namespace: boutique-app
