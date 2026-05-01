@@ -33,9 +33,20 @@ jobs:
 
       - name: Build Image
         run: |
-          docker build \
-            -t $IMAGE_NAME \
-            ./src/${{ inputs.service }}
+          if [ "${{ inputs.service }}" = "cartservice" ]; then
+            docker build \
+              --cache-from=type=gha \
+              --cache-to=type=gha,mode=max \
+              -t $IMAGE_NAME \
+              -f ./src/cartservice/src/Dockerfile \
+              ./src/cartservice/src
+          else
+            docker build \
+              --cache-from=type=gha \
+              --cache-to=type=gha,mode=max \
+              -t $IMAGE_NAME \
+              ./src/${{ inputs.service }}
+          fi
 
       #- name: Run Trivy Scan
         #uses: aquasecurity/trivy-action@0.20.0
